@@ -75,10 +75,35 @@ Shared LLM defaults inherited by `topics` and `generation`.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `provider` | string | LLM provider: openai, anthropic, gemini, ollama |
+| `provider` | string | LLM provider: openai, anthropic, gemini, ollama, azure, openrouter |
 | `model` | string | Model name |
 | `temperature` | float | Sampling temperature (0.0-2.0) |
 | `base_url` | string | Custom API endpoint |
+
+#### Supported Providers
+
+| Provider | Environment Variables | Notes |
+|----------|----------------------|-------|
+| `openai` | `OPENAI_API_KEY` | Default provider |
+| `anthropic` | `ANTHROPIC_API_KEY` | Uses native structured outputs |
+| `gemini` | `GOOGLE_API_KEY` or `GEMINI_API_KEY` | Either variable works |
+| `ollama` | None required | Requires Ollama running locally |
+| `azure` | `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT` | Azure OpenAI Service |
+| `openrouter` | `OPENROUTER_API_KEY` | Multi-model API aggregator |
+
+**Azure OpenAI Example:**
+
+```yaml
+llm:
+  provider: "azure"
+  model: "gpt-4o-deployment"  # Your Azure deployment name
+  temperature: 0.7
+```
+
+```bash
+export AZURE_OPENAI_API_KEY="your-api-key"
+export AZURE_OPENAI_ENDPOINT="https://your-resource.openai.azure.com"
+```
 
 ### topics
 

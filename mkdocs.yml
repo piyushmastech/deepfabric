@@ -50,6 +50,7 @@ nav:
     - import-tools: cli/import-tools.md
     - evaluate: cli/evaluate.md
     - info: cli/info.md
+  - Python SDK: sdk.md
 
 theme:
   name: material
